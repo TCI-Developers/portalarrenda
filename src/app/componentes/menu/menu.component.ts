@@ -16,6 +16,8 @@ botones: any  = [
     {texto: 'Complementos de Pago',
     ruta: 'pagos'},
     {texto: 'Poliza de Seguro',
+    ruta: 'seguros'},
+    {texto: 'Estado de cuenta',
     ruta: 'seguros'}
 ];
 

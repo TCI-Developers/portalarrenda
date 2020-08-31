@@ -31,7 +31,9 @@ export class FacturasComponent implements OnInit {
     });
     Swal.showLoading();
     this.lectura = JSON.parse(localStorage.getItem('credencial'));
-    const credencial = {rfc: this.lectura.rfc};
+    const credencial = {
+      rfc: this.lectura.rfc
+    };
     this.http.post('https://tciconsultoria.com/portalarrenda/facturas.php', JSON.stringify(credencial)).subscribe(
       (data: any) => {
         

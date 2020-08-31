@@ -4,25 +4,35 @@
             <div style="width: 95%; height: 95%;" *ngIf="tile.id === 1">
 
                 <div style="width:50%; margin: 0 auto; margin-top: 10%; ">
-                    <mat-form-field style="display: block; margin: auto;">
+
+
+                    <div class="form-group">
+                        <label for="user">Usuario</label>
+                        <input type="text" class="form-control" id="user" aria-describedby="emailHelp" placeholder="Ingresar usuario" [(ngModel)]="usuario">
+                    </div>
+                    <div class="form-group">
+                        <label for="user">Contraseña</label>
+                        <input type="password" class="form-control" id="user" aria-describedby="emailHelp" placeholder="Ingresar contraseña" [(ngModel)]="password">
+                        <small id="emailHelp" class="form-text text-muted">Ingresa usuario y contraseña para continuar.</small>
+                    </div>
+                    <!-- <mat-form-field style="display: block;">
                         <mat-label>Usuario</mat-label>
-                        <input matInput type="text" [(ngModel)]="usuario" autocomplete="off">
+                        <input matInput type="text" [(ngModel)]="usuario" >
                     </mat-form-field>
 
-                    <mat-form-field style="display: block; margin: auto;">
+                    <mat-form-field style="display: block;">
                         <mat-label>Contraseña</mat-label>
-                        <input matInput type="password" [(ngModel)]="password" autocomplete="off">
-                    </mat-form-field>
-                    <button mat-raised-button color="primary" *ngIf="valida()" (click)="navegar()">Ingresar</button>
+                        <input matInput type="password" [(ngModel)]="password">
+                    </mat-form-field> -->
+                    <button mat-raised-button color="warn" *ngIf="valida()" (click)="navegar()">Ingresar</button>
 
                 </div>
             </div>
 
-            <div style="width: 95%; height: 95%;" *ngIf="tile.id === 2">
-
+            <div style="width: 95%; height: 95%;float: right;" *ngIf="tile.id === 2">
                 <img src="https://api.hibe.com/file/images/upload/2019/3/aaa/aiw/cDExMTg1MF8xOTkzMDRfOTM3.png" width="90%" style="margin: 0 auto; margin-top: 3%;">
             </div>
         </mat-grid-tile>
     </mat-grid-list>
-
 </div>
+

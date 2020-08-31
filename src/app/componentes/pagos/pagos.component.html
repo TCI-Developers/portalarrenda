@@ -6,10 +6,15 @@
 
                 <div class="main-container m-3">
 
-                    <mat-form-field>
+                    <!-- <mat-form-field>
                         <mat-label>Filtro</mat-label>
                         <input matInput (keyup)="applyFilter($event)" placeholder="Busqueda">
-                    </mat-form-field>
+                    </mat-form-field> -->
+
+                    <div class="form-group" style="width: 50%;">
+                        <label for="search">Filtro</label>
+                        <input type="text" class="form-control" id="search" aria-describedby="filtro" placeholder="Busqueda" (keyup)="applyFilter($event)">
+                    </div>
 
                     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 100%;">
 
