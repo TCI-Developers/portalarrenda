@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  auth: 'https://tciconsultoria.com/portalarrenda/login.php',
+  ecuenta: 'https://tciconsultoria.com/portalarrenda/ecuenta/ecuenta.php'
 };
 
 /*

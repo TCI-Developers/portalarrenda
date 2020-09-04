@@ -1,0 +1,29 @@
+<mat-accordion>
+    <mat-expansion-panel (opened)="panelOpen = true"
+                         (closed)="panelOpen = false" *ngFor="let documento of argsDocumentos; let i = index;">
+      <mat-expansion-panel-header (click)="nextStep(i)">
+        <mat-panel-title>
+          Folio: {{documento.folio}}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{documento.status_portal_documentos}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      
+      <mat-grid-list cols="3" rowHeight="3:1">
+        <mat-grid-tile>No: {{documento.numero_interno}}</mat-grid-tile> 
+        <mat-grid-tile>Fecha de vencimiento: {{documento.fecha_vencimiento}}</mat-grid-tile>
+        <mat-grid-tile>Total importe servicio: {{documento.total_importe_servicio}}</mat-grid-tile>
+      </mat-grid-list>
+      <div style="height: 95%;">
+        <mat-toolbar color="primary" style="height: 30px;">Servicios:</mat-toolbar>
+      </div>
+      <!-- <app-servicios [argsServicios]="argsSevicios" *ngIf="argsSevicios"></app-servicios> -->
+      <mat-selection-list #shoes [multiple]="false">
+        <mat-list-option  *ngFor="let servicio of argsSevicios">
+          {{servicio.related_conceptos}}
+        </mat-list-option>
+      </mat-selection-list>
+    </mat-expansion-panel>
+    
+</mat-accordion>

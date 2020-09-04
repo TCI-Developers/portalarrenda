@@ -7,16 +7,19 @@ import { FacturaComponent } from './componentes/factura/factura.component';
 import { NotascreditoComponent } from './componentes/notascredito/notascredito.component';
 import { PagosComponent } from './componentes/pagos/pagos.component';
 import { SegurosComponent } from './componentes/seguros/seguros.component';
+import { EcuentaComponent } from './componentes/ecuenta/ecuenta.component';
+import { AuthGuard } from './guards/auth.guard';
 
 
 const routes: Routes = [
-{path: 'menu', component: MenuComponent},
-{path: 'pagos', component: PagosComponent},
-{path: 'facturas', component: FacturasComponent},
-{path: 'seguros', component: SegurosComponent},
-{path: 'factura', component: FacturaComponent},
+{path: 'ecuenta', component: EcuentaComponent, canActivate: [AuthGuard]},
+{path: 'menu', component: MenuComponent, canActivate: [AuthGuard]},
+{path: 'pagos', component: PagosComponent, canActivate: [AuthGuard]},
+{path: 'facturas', component: FacturasComponent, canActivate: [AuthGuard]},
+{path: 'seguros', component: SegurosComponent, canActivate: [AuthGuard]},
+{path: 'factura', component: FacturaComponent, canActivate: [AuthGuard]},
 {path: 'login', component: LoginComponent},
-{path: 'notas', component: NotascreditoComponent},
+{path: 'notas', component: NotascreditoComponent, canActivate: [AuthGuard]},
 {path: '**', component: LoginComponent}
 ];
 

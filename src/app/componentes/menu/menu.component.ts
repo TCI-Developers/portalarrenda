@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { EcuentaService } from 'src/app/services/ecuenta.service';
+import { GraficoService } from 'src/app/services/grafico.service';
 
 @Component({
   selector: 'app-menu',
@@ -18,23 +20,28 @@ botones: any  = [
     {texto: 'Poliza de Seguro',
     ruta: 'seguros'},
     {texto: 'Estado de cuenta',
-    ruta: 'seguros'}
+    ruta: 'ecuenta'}
 ];
 
 tiles: any[] = [
-  {id: 1, text: 'One', cols: 3, rows: 6, color: ''},
-  {id: 2, text: 'Two', cols: 1, rows: 6, color: ''}
+  {id: 1, text: 'One', cols: 3, rows: 1, color: ''},
+  {id: 2, text: 'Two', cols: 1, rows: 1, color: ''}
 ];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,private ecuentaService:EcuentaService, private serviceGrafico: GraficoService) { }
 
   ngOnInit() {
   }
 
-  navegar(ruta: string) {
-  this.router.navigateByUrl(ruta);
-
+  async navegar(ruta: string) {
+    if(ruta == 'ecuenta'){
+      this.serviceGrafico.showAlertLoading("¡Espere!","Estamos obteniendo su estado de cuenta...");
+      let credentiaal = JSON.parse(localStorage.getItem('credencial'));
+      this.ecuentaService.getEstadoCuenta(credentiaal.rfc);
+        
+    }else{
+      this.router.navigateByUrl(ruta);
+    }
   }
-
   
 }

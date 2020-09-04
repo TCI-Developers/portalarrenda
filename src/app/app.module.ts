@@ -44,6 +44,10 @@ import { BotoneraComponent } from './componentes/botonera/botonera.component';
 import { NotascreditoComponent } from './componentes/notascredito/notascredito.component';
 import { PagosComponent } from './componentes/pagos/pagos.component';
 import { SegurosComponent } from './componentes/seguros/seguros.component';
+import { EcuentaComponent } from './componentes/ecuenta/ecuenta.component';
+import { ContratosComponent } from './componentes/ecuenta/contratos/contratos.component';
+import { DocumentosComponent } from './componentes/ecuenta/contratos/documentos/documentos.component';
+import { ServiciosComponent } from './componentes/ecuenta/contratos/documentos/servicios/servicios.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +60,11 @@ import { SegurosComponent } from './componentes/seguros/seguros.component';
     NavbarComponent,
     NotascreditoComponent,
     PagosComponent,
-    SegurosComponent
+    SegurosComponent,
+    EcuentaComponent,
+    ContratosComponent,
+    DocumentosComponent,
+    ServiciosComponent
   ],
   imports: [
     BrowserModule,

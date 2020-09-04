@@ -7,8 +7,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./botonera.component.css']
 })
 export class BotoneraComponent implements OnInit {
-
-  constructor(private router: Router) { }
+  ruta;
+  constructor(private router: Router) {
+    this.ruta = this.router.url.substring(1,this.router.url.length);  
+   }
 
   ngOnInit(): void {
   }
@@ -19,7 +21,6 @@ export class BotoneraComponent implements OnInit {
   cerrar(){
     localStorage.removeItem('factura');
     localStorage.removeItem('credencial');
-
     this.router.navigateByUrl('login');
   }
 

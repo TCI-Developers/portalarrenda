@@ -1,0 +1,48 @@
+<div *ngIf="argsContratos">
+    <div class="main-container m-3">
+        <div class="form-group" style="width: 50%;">
+            <label for="search">Filtro</label>
+            <input type="text" class="form-control" id="search" aria-describedby="filtro" placeholder="Busqueda" (keyup)="applyFilter($event)">
+        </div>
+    </div>
+
+    <div style="height: 95%;">
+      <mat-toolbar color="primary" style="height: 30px;">Contratos:</mat-toolbar>
+    </div>
+
+    <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState=true"
+                              (closed)="panelOpenState=false"
+                              *ngFor="let contrato of argsContratos; let i = index;">
+          <mat-expansion-panel-header (click)="nextStep(i)">
+            <mat-panel-title>
+              <p class="color">Id Contrato:</p>&nbsp;{{contrato.id_contrato}}
+            </mat-panel-title>
+            <mat-panel-description>
+              {{contrato.vehiculo}}
+              <!-- <div class="separacion">
+                <mat-spinner [diameter]="30"></mat-spinner>&nbsp;&nbsp;Cargando...
+              </div> --> 
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <mat-grid-list cols="4" rowHeight="3:1">
+            <mat-grid-tile><p class="color">Fecha de inicio: </p>&nbsp;{{contrato.fecha_inicio_text}}</mat-grid-tile>
+            <mat-grid-tile><p class="color">Fecha de termino: </p>&nbsp;{{contrato.fecha_termino_text}}</mat-grid-tile>
+            <mat-grid-tile><p class="color">Plazo: </p>&nbsp; {{contrato.plazo}}</mat-grid-tile>
+            <mat-grid-tile><p class="color">Mensualidad: </p>&nbsp; {{contrato.total_mensualidad | currency}}</mat-grid-tile>
+          </mat-grid-list>
+            <div style="height: 95%;">
+              <mat-toolbar color="primary" style="height: 30px;">Documentos:</mat-toolbar>
+            </div>
+            <app-documentos [argsDocumentos]="argsDocumentos" *ngIf="argsDocumentos"></app-documentos>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>
+
+<div *ngIf="argsContratos == null">
+  <h1>Sin resultados</h1>
+</div>
+
+
+

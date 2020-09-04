@@ -1,6 +1,6 @@
 <br>
 <br>
-<button mat-raised-button color="primary" (click)="regresar()">Regresar</button>
+<button *ngIf="ruta != 'menu'" mat-raised-button (click)="regresar()" >Regresar</button>
 <br>
 <br>
-<button mat-raised-button color="primary" (click)="cerrar()">Cerrar Sesion</button>
+<button mat-raised-button (click)="cerrar()">Cerrar Sesion</button>

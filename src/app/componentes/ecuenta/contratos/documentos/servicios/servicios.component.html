@@ -1,0 +1,29 @@
+<mat-selection-list #shoes [multiple]="false">
+    <mat-list-option  *ngFor="let servicio of argsServicios">
+      {{servicio.related_conceptos}}
+    </mat-list-option>
+  </mat-selection-list>
+
+ 
+
+<!-- <mat-accordion>
+    <mat-expansion-panel (opened)="panelOpen = true"
+                         (closed)="panelOpen = false" *ngFor="let servicio of argsServicios">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Concepto: {{servicio.related_conceptos}}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{servicio.status_portal_documentos}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      
+      <mat-grid-list cols="3" rowHeight="2:1">
+        <mat-grid-tile>No: {{servicio.numero_interno}}</mat-grid-tile> 
+        <mat-grid-tile>Fecha de vencimiento: {{servicio.fecha_vencimiento}}</mat-grid-tile>
+        <mat-grid-tile>Total importe servicio: {{servicio.total_importe_servicio}}</mat-grid-tile>
+      </mat-grid-list>
+      <app-servicios [argsServicios]=""></app-servicios>
+    </mat-expansion-panel>
+    
+</mat-accordion> -->
