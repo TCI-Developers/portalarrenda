@@ -1,4 +1,4 @@
-<mat-accordion>
+<!-- <mat-accordion>
     <mat-expansion-panel (opened)="panelOpen = true"
                          (closed)="panelOpen = false" *ngFor="let documento of argsDocumentos; let i = index;">
       <mat-expansion-panel-header (click)="nextStep(i)">
@@ -18,7 +18,7 @@
       <div style="height: 95%;">
         <mat-toolbar color="primary" style="height: 30px;">Servicios:</mat-toolbar>
       </div>
-      <!-- <app-servicios [argsServicios]="argsSevicios" *ngIf="argsSevicios"></app-servicios> -->
+      <app-servicios [argsServicios]="argsSevicios" *ngIf="argsSevicios"></app-servicios>
       <mat-selection-list #shoes [multiple]="false">
         <mat-list-option  *ngFor="let servicio of argsSevicios">
           {{servicio.related_conceptos}}
@@ -26,4 +26,14 @@
       </mat-selection-list>
     </mat-expansion-panel>
     
-</mat-accordion>
+</mat-accordion> -->
+
+<mat-selection-list [multiple]="false">
+  <mat-list-option *ngFor="let documento of argsDocumentos; let i = index;" (click)="openDialog(i)">
+    <div class="documentos">
+      <span class="number">{{documento.numero_interno}}</span>&nbsp;&nbsp;&nbsp;<p style="margin: 0;">&nbsp;<span class="etiqueta">Fecha de vencimiento: </span>{{documento.fecha_vencimiento}}</p>&nbsp;&nbsp;&nbsp;
+      <span class="etiqueta">Importe servicios:&nbsp;</span>{{isObjectEmpty(documento.total_importe_servicio) | currency}}
+    </div>
+    <mat-divider></mat-divider>
+  </mat-list-option>
+</mat-selection-list>

@@ -52,9 +52,10 @@ export class GraficoService {
     });
    }
  
-   showAlertLoading(title,text){
+   showAlertLoading(title,text,icon){
      Swal.fire({
        allowOutsideClick: false,
+       icon,
        title,
        text,
      });

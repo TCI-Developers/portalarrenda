@@ -35,7 +35,7 @@ tiles: any[] = [
 
   async navegar(ruta: string) {
     if(ruta == 'ecuenta'){
-      this.serviceGrafico.showAlertLoading("¡Espere!","Estamos obteniendo su estado de cuenta...");
+      this.serviceGrafico.showAlertLoading("Obteniendo su estado de cuenta...","Esto puede tardar unos minutos,por favor espere. ","info");
       let credentiaal = JSON.parse(localStorage.getItem('credencial'));
       this.ecuentaService.getEstadoCuenta(credentiaal.rfc);
         

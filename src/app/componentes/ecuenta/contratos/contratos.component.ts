@@ -11,6 +11,7 @@ export class ContratosComponent implements OnInit {
   argsContratos:any[] = null;
   panelOpenState;
   argsDocumentos;
+  indexContrato;
   constructor(public ecuentaService:EcuentaService,private servicioGrafico: GraficoService) { }
 
   ngOnInit(): void {
@@ -26,6 +27,7 @@ export class ContratosComponent implements OnInit {
     if(this.panelOpenState){
       if(this.argsContratos[pos].doccontratos){
         this.argsDocumentos = this.argsContratos[pos].doccontratos;
+        this.indexContrato = pos;
       }
     }  
   }

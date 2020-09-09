@@ -11,7 +11,7 @@ export class LoginService {
   constructor(private http:HttpClient,private router: Router,private servicioGrafico:GraficoService) { }
 
   auth(credencial){
-    this.servicioGrafico.showAlertLoading("","Iniciando sesión...");
+    this.servicioGrafico.showAlertLoading("","Iniciando sesión...","info");
     this.http.post(environment.auth, credencial).subscribe(
       (data: any) => {
         this.authGuard = data.estatus;

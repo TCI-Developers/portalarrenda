@@ -1,0 +1,31 @@
+.color{
+    color:rgb(208, 44, 56);
+    margin: 0;
+}
+.servicios{
+    display: flex;
+    margin-top: 0;
+    justify-content: space-between;
+}
+
+.number{
+    background-color: black;
+    border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border: 0px solid #000000;
+    padding: 0px 5px;
+    color: white;
+}
+
+.etiqueta{
+    color:rgb(208, 44, 56);
+}
+.leyenda{
+ margin: 0;
+}
+
+.buttonDocumento{
+    color: white;
+    background-color: #323131;
+}

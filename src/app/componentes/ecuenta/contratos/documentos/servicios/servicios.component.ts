@@ -1,4 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DialogData } from '../documentos.component';
+import { EcuentaService } from 'src/app/services/ecuenta.service';
 
 @Component({
   selector: 'app-servicios',
@@ -6,14 +9,19 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./servicios.component.css']
 })
 export class ServiciosComponent implements OnInit {
-  @Input() argsServicios:any;
+  argsServicios: any;
   panelOpen;
 
   displayedColumns: string[] = ['importe', 'concepto', 'subtotal', 'iva'];
-  constructor() { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData,public ecuentaService: EcuentaService) { }
 
   ngOnInit(): void {
+    this.argsServicios = this.ecuentaService.argsECuenta.data[this.data.contrato].doccontratos[this.data.documento];
+    console.log(this.argsServicios);
+  }
 
+  solicitarDocumento(servicio){
+    console.log(servicio);
   }
 
 }

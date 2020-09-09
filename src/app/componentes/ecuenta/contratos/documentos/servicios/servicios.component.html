@@ -1,29 +1,41 @@
-<mat-selection-list #shoes [multiple]="false">
-    <mat-list-option  *ngFor="let servicio of argsServicios">
-      {{servicio.related_conceptos}}
+<h2 mat-dialog-title>Folio documento: {{argsServicios.folio}}</h2>
+<mat-dialog-content class="mat-typography">
+  <mat-grid-list cols="4" rowHeight="3:1">
+    <mat-grid-tile><p class="color">Contrato: </p>&nbsp;{{argsServicios.id_contrato}}</mat-grid-tile>
+    <mat-grid-tile><p class="color">Fecha de Vencimiento: </p>&nbsp;{{argsServicios.fecha_vencimiento}}</mat-grid-tile>
+    <mat-grid-tile><p class="color">Total importe: </p>&nbsp; {{argsServicios.total_importe_servicio | currency}}</mat-grid-tile>
+  </mat-grid-list>
+
+  <div style="height: 95%;">
+    <mat-toolbar color="primary" style="height: 30px;">Servicios:</mat-toolbar>
+  </div>
+
+  <mat-selection-list [multiple]="false" *ngIf="argsServicios.servicios.length > 0">
+    <mat-list-option *ngFor="let servicios of argsServicios.servicios; let i = index;">
+      <div class="servicios">
+        <p class="leyenda"><span class="etiqueta">Importe: </span>{{servicios.importe_servicio | currency}}</p>&nbsp;&nbsp;&nbsp;<p class="leyenda">&nbsp;<span class="etiqueta">Concepto: </span>{{servicios.related_conceptos}}</p>&nbsp;&nbsp;&nbsp;
+        <p class="leyenda"><span class="etiqueta">Sub total:&nbsp;</span>{{servicios.sub_total | currency}}</p><p class="leyenda"><span class="etiqueta">Iva:&nbsp;</span>{{servicios.iva | currency}}</p>
+        <button class="buttonDocumento" mat-button>Documento</button>
+        <mat-divider></mat-divider>
+      </div>
     </mat-list-option>
   </mat-selection-list>
 
- 
-
-<!-- <mat-accordion>
-    <mat-expansion-panel (opened)="panelOpen = true"
-                         (closed)="panelOpen = false" *ngFor="let servicio of argsServicios">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Concepto: {{servicio.related_conceptos}}
-        </mat-panel-title>
-        <mat-panel-description>
-          {{servicio.status_portal_documentos}}
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      
-      <mat-grid-list cols="3" rowHeight="2:1">
-        <mat-grid-tile>No: {{servicio.numero_interno}}</mat-grid-tile> 
-        <mat-grid-tile>Fecha de vencimiento: {{servicio.fecha_vencimiento}}</mat-grid-tile>
-        <mat-grid-tile>Total importe servicio: {{servicio.total_importe_servicio}}</mat-grid-tile>
-      </mat-grid-list>
-      <app-servicios [argsServicios]=""></app-servicios>
-    </mat-expansion-panel>
+  <mat-selection-list [multiple]="false" *ngIf="!(argsServicios.servicios.length > 0)">
+    <mat-list-option>
+      <div class="servicios">
+        <p class="leyenda"><span class="etiqueta">Importe: </span>{{argsServicios.servicios.importe_servicio | currency}}</p>&nbsp;&nbsp;&nbsp;<p class="leyenda">&nbsp;<span class="etiqueta">Concepto: </span>{{argsServicios.servicios.related_conceptos}}</p>&nbsp;&nbsp;&nbsp;
+        <p class="leyenda"><span class="etiqueta">Sub total:&nbsp;</span>{{argsServicios.servicios.sub_total | currency}}</p><p class="leyenda"><span class="etiqueta">Iva:&nbsp;</span>{{argsServicios.servicios.iva | currency}}</p>
+        <button class="buttonDocumento" mat-button>Documento</button>
+        <mat-divider></mat-divider>
+      </div>
+    </mat-list-option>
+  </mat-selection-list>
     
-</mat-accordion> -->
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close color="warn">Cerrar</button>
+</mat-dialog-actions>
+
+
+

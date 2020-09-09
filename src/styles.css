@@ -14,8 +14,7 @@ body {
 }
 
 div {
-    overflow: scroll;
-  
+    overflow: auto;
 }
 
 ::-webkit-scrollbar{
