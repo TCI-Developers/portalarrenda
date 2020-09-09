@@ -17,9 +17,6 @@ export class ContratosComponent implements OnInit {
   ngOnInit(): void {
     if(this.ecuentaService.argsECuenta)
       this.argsContratos = this.ecuentaService.argsECuenta.data;
-
-    console.log(this.ecuentaService.argsECuenta.data);
-      
   }
 
   async nextStep(pos){
