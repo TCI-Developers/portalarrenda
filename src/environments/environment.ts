@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   auth: 'https://tciconsultoria.com/portalarrenda/login.php',
-  ecuenta: 'https://tciconsultoria.com/portalarrenda/ecuenta/ecuenta.php'
+  ecuenta: 'https://tciconsultoria.com/portalarrenda/ecuenta/ecuenta.php',
+  solicitud: 'https://tciconsultoria.com/portalarrenda/ecuenta/solicitud.php'
 };
 
 /*

@@ -15,7 +15,7 @@
       <div class="servicios">
         <p class="leyenda"><span class="etiqueta">Importe: </span>{{servicios.importe_servicio | currency}}</p>&nbsp;&nbsp;&nbsp;<p class="leyenda">&nbsp;<span class="etiqueta">Concepto: </span>{{servicios.related_conceptos}}</p>&nbsp;&nbsp;&nbsp;
         <p class="leyenda"><span class="etiqueta">Sub total:&nbsp;</span>{{servicios.sub_total | currency}}</p><p class="leyenda"><span class="etiqueta">Iva:&nbsp;</span>{{servicios.iva | currency}}</p>
-        <button class="buttonDocumento" mat-button>Documento</button>
+        <button class="buttonDocumento" mat-button (click)="solicitarDocumento(servicios)">Documento</button>
         <mat-divider></mat-divider>
       </div>
     </mat-list-option>
@@ -26,7 +26,7 @@
       <div class="servicios">
         <p class="leyenda"><span class="etiqueta">Importe: </span>{{argsServicios.servicios.importe_servicio | currency}}</p>&nbsp;&nbsp;&nbsp;<p class="leyenda">&nbsp;<span class="etiqueta">Concepto: </span>{{argsServicios.servicios.related_conceptos}}</p>&nbsp;&nbsp;&nbsp;
         <p class="leyenda"><span class="etiqueta">Sub total:&nbsp;</span>{{argsServicios.servicios.sub_total | currency}}</p><p class="leyenda"><span class="etiqueta">Iva:&nbsp;</span>{{argsServicios.servicios.iva | currency}}</p>
-        <button class="buttonDocumento" mat-button>Documento</button>
+        <button class="buttonDocumento" mat-button (click)="solicitarDocumento(argsServicios.servicios)">Documento</button>
         <mat-divider></mat-divider>
       </div>
     </mat-list-option>
