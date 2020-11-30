@@ -23,6 +23,8 @@ export class LoginService {
           } else {
             this.servicioGrafico.showAlertError("Error de autenticacion","Revisa tu usuario y/o contraseña y vuelve a intentarlo.");
           }
+        }, error => {
+          this.servicioGrafico.showAlertError("Error 404","Por favor intentalo mas tarde.");
         });
   }
 

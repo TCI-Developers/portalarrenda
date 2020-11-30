@@ -18,6 +18,8 @@ export class ServiciosComponent implements OnInit {
 
   ngOnInit(): void {
     this.argsServicios = this.ecuentaService.argsECuenta.data[this.data.contrato].doccontratos[this.data.documento];
+    console.log(this.argsServicios);
+    
   }
 
   solicitarDocumento(servicio){

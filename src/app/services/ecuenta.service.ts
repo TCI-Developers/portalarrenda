@@ -14,6 +14,8 @@ export class EcuentaService {
   getEstadoCuenta(rfc){
     let data = {rfc};
     this.http.post(environment.ecuenta,data).subscribe(async (response:any) => {
+      console.log(response);
+      
       if(response){
         if(response.estatus){
           this.serviceGrafico.showAlertSuccessTime("","Estado de cuenta obtenido");
@@ -23,6 +25,8 @@ export class EcuentaService {
           this.serviceGrafico.showAlertError("Error",response.response);
         }
       }     
+    }, error =>{
+      this.serviceGrafico.showAlertError("Error de consulta","No se pudo obtener el estado de cuenta, por favor intente mas tarde...")
     });
       
   }
