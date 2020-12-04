@@ -19,6 +19,7 @@ export class LoginService {
             this.servicioGrafico.showAlertSuccessTime("Inicio exitoso","");
             const credencial: any = {rfc: data.rfc};
             localStorage.setItem('credencial', JSON.stringify(credencial));
+            localStorage.setItem('record', data.record);
             this.router.navigateByUrl('menu');
           } else {
             this.servicioGrafico.showAlertError("Error de autenticacion","Revisa tu usuario y/o contraseña y vuelve a intentarlo.");

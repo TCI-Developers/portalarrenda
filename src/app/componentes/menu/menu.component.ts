@@ -20,7 +20,9 @@ botones: any  = [
     {texto: 'Poliza de Seguro',
     ruta: 'seguros'},
     {texto: 'Estado de cuenta',
-    ruta: 'ecuenta'}
+    ruta: 'ecuenta'},
+    {texto: 'Documentacion',
+    ruta: 'documentos'}
 ];
 
 tiles: any[] = [
@@ -38,7 +40,8 @@ tiles: any[] = [
       this.serviceGrafico.showAlertLoading("Obteniendo su estado de cuenta...","Esto puede tardar unos minutos,por favor espere. ","info");
       let credentiaal = JSON.parse(localStorage.getItem('credencial'));
       this.ecuentaService.getEstadoCuenta(credentiaal.rfc);
-        
+    }else if(ruta == 'documentos'){
+      window.open('https://ichiban.rocks/old/Clientes/'+localStorage.getItem('record'), '', 'width=' + screen.width); 
     }else{
       this.router.navigateByUrl(ruta);
     }
