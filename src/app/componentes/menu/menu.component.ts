@@ -11,7 +11,7 @@ import { GraficoService } from 'src/app/services/grafico.service';
 export class MenuComponent implements OnInit {
 
 botones: any  = [
-  {texto: 'Consulta Facturas',
+    {texto: 'Consulta Facturas',
     ruta: 'facturas'},
     {texto: 'Notas de Credito',
     ruta: 'notas'},
@@ -22,7 +22,9 @@ botones: any  = [
     {texto: 'Estado de cuenta',
     ruta: 'ecuenta'},
     {texto: 'Documentacion',
-    ruta: 'documentos'}
+    ruta: 'documentos'},
+    {texto: 'Preventas',
+    ruta: 'preventa'}
 ];
 
 tiles: any[] = [

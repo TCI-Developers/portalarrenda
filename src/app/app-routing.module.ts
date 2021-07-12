@@ -9,18 +9,20 @@ import { PagosComponent } from './componentes/pagos/pagos.component';
 import { SegurosComponent } from './componentes/seguros/seguros.component';
 import { EcuentaComponent } from './componentes/ecuenta/ecuenta.component';
 import { AuthGuard } from './guards/auth.guard';
+import { PreventaComponent } from './componentes/preventa/preventa.component';
 
 
 const routes: Routes = [
-{path: 'ecuenta', component: EcuentaComponent, canActivate: [AuthGuard]},
-{path: 'menu', component: MenuComponent, canActivate: [AuthGuard]},
-{path: 'pagos', component: PagosComponent, canActivate: [AuthGuard]},
-{path: 'facturas', component: FacturasComponent, canActivate: [AuthGuard]},
-{path: 'seguros', component: SegurosComponent, canActivate: [AuthGuard]},
-{path: 'factura', component: FacturaComponent, canActivate: [AuthGuard]},
-{path: 'login', component: LoginComponent},
-{path: 'notas', component: NotascreditoComponent, canActivate: [AuthGuard]},
-{path: '**', component: LoginComponent}
+  {path: 'preventa', component: PreventaComponent, canActivate: [AuthGuard]},
+  {path: 'ecuenta', component: EcuentaComponent, canActivate: [AuthGuard]},
+  {path: 'menu', component: MenuComponent, canActivate: [AuthGuard]},
+  {path: 'pagos', component: PagosComponent, canActivate: [AuthGuard]},
+  {path: 'facturas', component: FacturasComponent, canActivate: [AuthGuard]},
+  {path: 'seguros', component: SegurosComponent, canActivate: [AuthGuard]},
+  {path: 'factura', component: FacturaComponent, canActivate: [AuthGuard]},
+  {path: 'login', component: LoginComponent},
+  {path: 'notas', component: NotascreditoComponent, canActivate: [AuthGuard]},
+  {path: '**', component: LoginComponent}
 ];
 
 @NgModule({

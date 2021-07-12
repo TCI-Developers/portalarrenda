@@ -48,6 +48,7 @@ import { EcuentaComponent } from './componentes/ecuenta/ecuenta.component';
 import { ContratosComponent } from './componentes/ecuenta/contratos/contratos.component';
 import { DocumentosComponent } from './componentes/ecuenta/contratos/documentos/documentos.component';
 import { ServiciosComponent } from './componentes/ecuenta/contratos/documentos/servicios/servicios.component';
+import { PreventaComponent } from './componentes/preventa/preventa.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { ServiciosComponent } from './componentes/ecuenta/contratos/documentos/s
     EcuentaComponent,
     ContratosComponent,
     DocumentosComponent,
-    ServiciosComponent
+    ServiciosComponent,
+    PreventaComponent
   ],
   imports: [
     BrowserModule,

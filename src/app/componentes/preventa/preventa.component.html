@@ -1,0 +1,81 @@
+<div style="width: 98%; margin: 0 auto; margin-top: 1%;" class="shadow-lg p-3 mb-5 bg-white rounded">
+    <mat-grid-list cols="4" rowHeight="100px">
+        <mat-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows" [style.background]="tile.color">
+            <div style="width: 95%; height: 95%;" *ngIf="tile.id === 1">
+                <mat-toolbar color="primary" style="height: 30px;">PREVENTAS</mat-toolbar>
+
+                <div class="main-container m-3">
+
+                    <div class="form-group" style="width: 50%;">
+                        <label for="search">Filtro</label>
+                        <input type="text" class="form-control" id="search" aria-describedby="filtro" placeholder="Busqueda" (keyup)="applyFilter($event)">
+                    </div>
+
+                    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 100%;">
+
+                        <!-- Id Preventa Column -->
+                        <ng-container matColumnDef="folio">
+                            <th mat-header-cell *matHeaderCellDef> Id preventa </th>
+                            <td mat-cell *matCellDef="let element"> {{element.id_preventa}} </td>
+                        </ng-container>
+
+                        <!-- Marca Column -->
+                        <ng-container matColumnDef="marca">
+                            <th mat-header-cell *matHeaderCellDef> Marca </th>
+                            <td mat-cell *matCellDef="let element"> {{element.marca}} </td>
+                        </ng-container>
+
+                        <!-- Status Column -->
+                        <ng-container matColumnDef="status">
+                            <th mat-header-cell *matHeaderCellDef> Status </th>
+                            <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+                        </ng-container>
+
+                        <!-- Recibo 1 Column -->
+                        <ng-container matColumnDef="recibo1">
+                            <th mat-header-cell *matHeaderCellDef> Recibo 1 </th>
+                            <td mat-cell *matCellDef="let element"> 
+                                <a mat-raised-button color="primary" [href]="element.file_1" *ngIf="isObjectEmpty(element.pdf_recibo_1); else elseBlock">Descargar</a>
+                                <ng-template #elseBlock>Sin archivo</ng-template>
+                            </td>
+                        </ng-container>
+
+                       <!-- Recibo 2 Column -->
+                       <ng-container matColumnDef="recibo2">
+                            <th mat-header-cell *matHeaderCellDef> Recibo 2 </th>
+                            <td mat-cell *matCellDef="let element"> 
+                                <a mat-raised-button color="primary" [href]="element.file_2" *ngIf="isObjectEmpty(element.pdf_recibo_2); else elseBlock">Descargar</a>
+                                <ng-template #elseBlock>Sin archivo</ng-template>
+                            </td>
+                        </ng-container>
+
+                       <!-- Recibo 3 Column -->
+                       <ng-container matColumnDef="recibo3">
+                            <th mat-header-cell *matHeaderCellDef> Recibo 3 </th>
+                            <td mat-cell *matCellDef="let element"> 
+                                <a mat-raised-button color="primary" [href]="element.file_3" *ngIf="isObjectEmpty(element.pdf_recibo_3); else elseBlock">Descargar</a>
+                                <ng-template #elseBlock>Sin archivo</ng-template>
+                            </td>
+                        </ng-container>
+                       
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+
+
+                </div>
+
+            </div>
+
+            <div style="width: 95%; height: 95%;" *ngIf="tile.id === 2">
+
+                <img src="https://api.hibe.com/file/images/upload/2019/3/aaa/aiw/cDExMTg1MF8xOTkzMDRfOTM3.png" width="90%" style="margin: 0 auto; margin-top: 3%;">
+                <app-botonera></app-botonera>
+            </div>
+            <div style="width: 95%; height: 95%;" *ngIf="tile.id === 2">
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+</div>
